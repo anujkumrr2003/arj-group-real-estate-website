@@ -1,19 +1,6 @@
- 
 RewriteEngine On
-# RewriteBase /arjgroup/
 
-# If file or directory doesn't exist
+# Rewrite URLs to allow access by slug
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule ^developers/([a-zA-Z0-9\-]+)$ developers.php?slug=$1 [QSA,L]
-
-
-# Sitemap
-RewriteRule ^sitemap\.xml$ sitemap.php [L]
-
-
-
-
-
- 
+RewriteRule ^([^/]+)$ view.php?slug=$1 [L,QSA]
